@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body style="background:#1a1a1a; color:white; display:flex; flex-direction:column; align-items:center; font-family:sans-serif;">
+    <a href="index.html" style="color: #888; text-decoration: none; font-size: 14px; margin-top: 10px; border: 1px solid #444; padding: 5px 15px; border-radius: 20px;">← Home</a>
+    <h3>SCORE: <span id="s" style="color:#ed1c24">0</span></h3>
+    <canvas id="c" width="400" height="400" style="border:4px solid #ed1c24; background:#000"></canvas>
+<script>
+    const ctx = document.getElementById("c").getContext("2d");
+    let score=0, sn=[{x:10, y:10}], food={x:15, y:15}, d={x:1, y:0};
+
+    // Main Game Loop (called every 100ms)
+    setInterval(() => {
+        let h = {x: sn[0].x + d.x, y: sn[0].y + d.y}; // Calculate new head position
+        
+        // Wall or Self Collision
+        if (h.x<0||h.x>19||h.y<0||h.y>19||sn.some(s=>s.x==h.x&&s.y==h.y)) return location.reload();
+
+        sn.unshift(h); // Add new head
+        if (h.x==food.x && h.y==food.y) { // Eat Red Bull
+            score++; document.getElementById("s").innerText = score;
+            food = {x: Math.floor(Math.random()*20), y: Math.floor(Math.random()*20)};
+        } else sn.pop(); // Remove tail
+
+        // Draw everything
+        ctx.fillStyle="black"; ctx.fillRect(0,0,400,400);
+        ctx.fillStyle="#005a9c"; ctx.fillRect(food.x*20, food.y*20, 18, 18); // Food
+        sn.forEach((p,i) => {
+            ctx.fillStyle = i ? "white" : "#ed1c24"; // Red head, white body
+            ctx.fillRect(p.x*20, p.y*20, 18, 18);
+        });
+    }, 100);
+
+    // Controls
+    window.onkeydown = e => {
+        const k = {37:{x:-1,y:0}, 38:{x:0,y:-1}, 39:{x:1,y:0}, 40:{x:0,y:1}}[e.keyCode];
+        if (k && (k.x!=-d.x || k.y!=-d.y)) d = k; // Update direction (prevent 180 turns)
+    };
+</script>
+</body>
+</html>

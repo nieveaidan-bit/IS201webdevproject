@@ -1,0 +1,84 @@
+body {
+    background-color: #f8fafc; /* Matches your overwrite.css */
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container to center all gallery content */
+.gallery-container {
+    max-width: 1200px;
+    margin: 6rem auto; /* Large top margin because of the fixed navbar */
+    padding: 2rem;
+    text-align: center;
+}
+
+h1 {
+    color: #0f172a; /* Slate dark color from overwrite.css */
+    margin-bottom: 4rem;
+}
+
+/* Container for the photos so they sit side-by-side */
+.photo-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem; /* Wide space between the photos */
+    margin-bottom: 4rem;
+}
+
+/* --- THE FRAMING LOGIC --- */
+
+/* The blue frame with a white background and slight shadow */
+.frame {
+    background-color: #ffffff; /* Frame background is white */
+    padding: 20px;            /* Adds space between blue border and image */
+    border: 5px solid #2563eb; /* Strong blue border (Matches overwrite.css primary blue) */
+    border-radius: 0.5rem;    /* Rounds corners slightly (Matches overwrite.css) */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Adds depth */
+    display: inline-block;
+}
+
+/* Image styling inside the frame */
+.frame img {
+    max-width: 450px; /* Limits photo width */
+    height: auto;     /* Maintains aspect ratio */
+    display: block;   /* Eliminates bottom gap */
+}
+
+/* --- THE ROTATION LOGIC --- */
+
+/* The straight photo is already correct, but we'll add this just in case */
+.frame.straight {
+    transform: rotate(0deg);
+}
+
+/* This is the titled frame, rotated 35 degrees */
+/* Update this specific rule in your family.css */
+.frame.titled img {
+    max-width: 225px; /* This is exactly half of the 450px we set for the straight photo */
+    height: auto;
+    display: block;
+}
+
+/* Keep your rotation logic the same */
+.frame.titled {
+    transform: rotate(35deg);
+    /* Adding a margin helps prevent the tilted corners from hitting other elements */
+    margin: 20px; 
+}
+
+/* A clean, dark slate button to return home */
+.btn-return {
+    background-color: #0f172a; /* Deep slate instead of pure black */
+    color: #ffffff;
+    padding: 0.6rem 1.5rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-return:hover {
+    background-color: #334155; /* Slightly lighter slate on hover */
+}

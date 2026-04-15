@@ -1,0 +1,107 @@
+html {
+    scroll-behavior: smooth;
+}
+.top-nav {
+    position: fixed;    /* Locks it to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000; /* Solid black */
+    text-align: center;        /* Centers the links */
+    padding: 15px 0;
+    z-index: 1000;             /* Keeps it above all other content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Styling the Links */
+.top-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 20px;            /* Spacing between links */
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.top-nav a:hover {
+    color: #2563eb;            /* Professional blue hover effect */
+}
+
+/* IMPORTANT: Shift your header down so it isn't hidden by the nav */
+.header-block {
+    margin-top: 50px; 
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Requirement: Font Family */
+    color: #333333; /* Requirement: Font Color */
+    line-height: 1.6;
+    background-color: #fcfcfc;
+    margin: 0;
+    padding: 0;
+}
+
+/* Definition 2: Header Styling */
+.header-block {
+    text-align: center;
+    padding: 60px 20px;
+    color: #ffffff;
+    /* This creates a vertical fade from dark blue to a lighter shade */
+    background: linear-gradient(to bottom, #003366, #2563eb);
+}
+
+.profile-photo {
+    width: 150px;           /* Adjust size as needed */
+    height: 150px;
+    object-fit: cover;      /* Prevents stretching if the photo isn't square */
+    border-radius: 50%;     /* Makes the photo a perfect circle */
+    border: 3px solid #ffffff; /* Adds a clean white ring around the photo */
+    margin: 15px 0;         /* Adds space above and below the photo */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Soft shadow for depth */
+}
+
+/* Definition 3: Section Headings */
+h2 {
+    font-family: Georgia, serif; /* Requirement: Font Family */
+    color: #004b98;             /* Requirement: Font Color */
+    border-bottom: 2px solid #e0e0e0;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+
+/* Definition 4: List Styling */
+ul {
+    color: #555555; /* Requirement: Font Color */
+    padding-left: 20px;
+}
+
+/* Positioning Blocks (Requirement: At least 3 divs for positioning/styling) */
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.experience-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 5px solid #004b98;
+    background-color: #f9f9f9;
+}
+
+.footer-block {
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 20px;
+    color: #888888; /* Requirement: Font Color */
+}
+ol {
+    color: #333333;
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+ol li {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,95 @@
+:root {
+  /* 1. Professional Blue/Slate palette */
+  --bs-primary: #2563eb;       
+  --bs-primary-rgb: 37, 99, 235;
+  --bs-dark: #0f172a;          
+  
+  /* 2. Typography */
+  --bs-body-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --bs-body-color: #334155;    
+  
+  /* 3. Modernized UI elements */
+  --bs-border-radius: 0.5rem;   
+  --bs-link-color: #2563eb;
+  --bs-link-hover-color: #1d4ed8;
+  --bs-link-decoration: none;   
+}
+
+body {
+  background-color: #f8fafc;    
+  letter-spacing: -0.01em;     
+}
+
+.navbar {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); 
+  backdrop-filter: blur(8px);                 
+}
+
+.btn-primary {
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px); 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* --- NEW LAYOUT FIXES --- */
+
+/* Push the header down so it doesn't hide under the fixed navbar */
+header.bg-primary {
+  padding-top: 8rem !important; 
+  padding-bottom: 5rem !important;
+}
+
+/* Style for the Personal Statement "Box" */
+.personal-statement-box {
+  background-color: #ffffff;
+  border-radius: var(--bs-border-radius);
+  border: 1px solid #e2e8f0;
+}
+
+/* Centers the list items while keeping them looking clean */
+.personal-statement-box ul {
+  display: inline-block;
+  text-align: left;
+  margin-top: 1rem;
+}
+#about {
+    /* Path: Go into the 'img' folder and find 'OIP.jpg' */
+    background-image: url('../img/OIP.jpg');
+    
+    /* Ensure the image covers the whole area without stretching */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Optional: adds a cool parallax scroll effect */
+    
+    /* Add a semi-transparent overlay so the text doesn't get lost */
+    position: relative;
+    padding: 100px 0; /* Extra breathing room */
+}
+
+/* Optional: Add a subtle overlay to the section to dim the image slightly */
+#about::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.6); /* 60% white overlay */
+    z-index: 1;
+}
+
+/* Ensure the content sits ABOVE the overlay */
+#about .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Make the white box pop against the background */
+.personal-statement-box {
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Nearly solid white */
+    backdrop-filter: blur(10px); /* Modern glass effect */
+    border: none;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
